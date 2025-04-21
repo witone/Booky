@@ -9,6 +9,44 @@ import AppIntents
 import CoreData
 import UIKit
 
+@available(iOS 17, *)
+struct AppShortcuts: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] {
+        AppShortcut(
+            intent: AddBook(),
+            phrases: [
+                "Add Book in \(.applicationName)"
+            ],
+            shortTitle: "Add Book",
+            systemImageName: "cart"
+        )
+        AppShortcut(
+            intent: DeleteBooks(),
+            phrases: [
+                "Delete Books in \(.applicationName)"
+            ],
+            shortTitle: "Delete Books",
+            systemImageName: "creditcard"
+        )
+        AppShortcut(
+            intent: MarkBooksAsRead(),
+            phrases: [
+                "Mark Books As Read \(.applicationName)"
+            ],
+            shortTitle: "Mark Books As Read",
+            systemImageName: "gift"
+        )
+        AppShortcut(
+            intent: OpenBook(),
+            phrases: [
+                "Open Book \(.applicationName)"
+            ],
+            shortTitle: "Open Book",
+            systemImageName: "gift"
+        )
+    }
+}
+
 class BookManager {
     
     static let shared = BookManager()
